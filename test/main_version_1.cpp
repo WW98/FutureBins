@@ -393,16 +393,16 @@ void voice(int num_voice)
       syn.play(text1, sizeof(text1), 1);
       break;
     case 2:
-      syn.play(text2, sizeof(text2), 2);
+      syn.play(text1, sizeof(text2), 2);
       break;
     case 3:
-      syn.play(text3, sizeof(text3), 3);
+      syn.play(text1, sizeof(text3), 3);
       break;
     case 4:
-      syn.play(text4, sizeof(text4), 4);
+      syn.play(text1, sizeof(text4), 4);
       break;
     case 5:
-      syn.play(text5, sizeof(text5), 5);
+      syn.play(text1, sizeof(text5), 5);
       break;
     case 6:
       syn.play(text6, sizeof(text6), 6);
@@ -423,7 +423,7 @@ void Garbage_disposal_1()
   stepper3.runToNewPosition(512);
   stepper1.runToNewPosition(1024);
   Serial.println("Please throw in the garbage!");
-  voice(1);
+  //voice(1);
   waiting(5);
   stepper1.runToNewPosition(0);
   stepper2.moveTo(0);
@@ -439,7 +439,7 @@ void Garbage_disposal_2()
   stepper3.runToNewPosition(1024);
   stepper1.runToNewPosition(1024);
   Serial.println("Please throw in the garbage!");
-  voice(3);
+  //voice(3);
   waiting(5);
   stepper1.runToNewPosition(0);
   stepper2.moveTo(0);
@@ -454,7 +454,7 @@ void Garbage_disposal_3()
   stepper3.runToNewPosition(1536);
   stepper1.runToNewPosition(1024);
   Serial.println("Please throw in the garbage!");
-  voice(2);
+  //voice(2);
   waiting(5);
   stepper1.runToNewPosition(0);
   stepper2.moveTo(0);
@@ -469,7 +469,7 @@ void Garbage_disposal_4()
   stepper3.runToNewPosition(2048);
   stepper1.runToNewPosition(1024);
   Serial.println("Please throw in the garbage!");
-  voice(4);
+  //voice(4);
   waiting(5);
   stepper1.runToNewPosition(0);
   stepper2.moveTo(0);
@@ -484,7 +484,7 @@ void Garbage_disposal_5()
   stepper3.runToNewPosition(0);
   stepper1.runToNewPosition(1024);
   Serial.println("Please throw in the garbage!");
-  voice(5);
+  //voice(5);
   waiting(5);
   stepper1.runToNewPosition(0);
   stepper2.moveTo(0);

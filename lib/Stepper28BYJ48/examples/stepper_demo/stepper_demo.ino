@@ -4,7 +4,7 @@
  */
 
 #include <Stepper28BYJ48.h>
-
+#include <Arduino.h>
 const int stepsPerRevolution = 4096;  //28BYJ48电机旋转一周需要的步数
 
 
