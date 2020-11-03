@@ -160,8 +160,8 @@ int Bin_1(int bin_1_num)
   {
     case 1:
       {
-        //Serial.print("Bin_1_distance:");
-        //Serial.println(Ultrasonic_1_distance);
+        Serial.print("Bin_1_distance:");
+        Serial.println(Ultrasonic_1_distance);
         return Ultrasonic_1_distance;
       }
       break;
@@ -393,16 +393,16 @@ void voice(int num_voice)
       syn.play(text1, sizeof(text1), 1);
       break;
     case 2:
-      syn.play(text2, sizeof(text2), 2);
+      syn.play(text1, sizeof(text2), 2);
       break;
     case 3:
-      syn.play(text3, sizeof(text3), 3);
+      syn.play(text1, sizeof(text3), 3);
       break;
     case 4:
-      syn.play(text4, sizeof(text4), 4);
+      syn.play(text1, sizeof(text4), 4);
       break;
     case 5:
-      syn.play(text5, sizeof(text5), 5);
+      syn.play(text1, sizeof(text5), 5);
       break;
     case 6:
       syn.play(text6, sizeof(text6), 6);
@@ -416,6 +416,7 @@ void waiting(int timesNum)
 {
   delay(timesNum * 1000);
 }
+
 //系统操作：可回收垃圾类型
 void Garbage_disposal_1()
 {

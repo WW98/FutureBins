@@ -36,7 +36,7 @@
 // 电机步进方式定义
 #define FULLSTEP 4    //全步进参数
 #define HALFSTEP 8    //半步进参数
- 
+
 //投放口控制电机
 #define BYJ48_0_In1 22 //28BYJ48_In1引脚定义
 #define BYJ48_0_In2 24 //28BYJ48_In2引脚定义
@@ -83,7 +83,7 @@ int Ultrasonic_5_distance;  //5号垃圾箱检测高度
 int Overflow_5_state; //5号垃圾箱装载情况
 int Overflow_5_number; //5号垃圾箱满载次数
 
-unsigned char Bins_state; //垃圾类型识别结果
+char Bins_state; //垃圾类型识别结果
 
 OneWire oneWire(ONE_WIRE_BUS);  //设置oneWire实例以与任何oneWire设备通信
 DallasTemperature sensors(&oneWire);  //把温度传给oneWire
@@ -118,19 +118,19 @@ void FAN(int num_FAN)
 {
   switch (num_FAN)
   {
-  case 0:
+    case 0:
       {
-        analogWrite(motorIn3,0);
-        analogWrite(motorIn4,0);
+        analogWrite(motorIn3, 0);
+        analogWrite(motorIn4, 0);
       }
-    break;
-  case 1:
+      break;
+    case 1:
       {
-        analogWrite(motorIn3,0);
-        analogWrite(motorIn4,rank3);
+        analogWrite(motorIn3, 0);
+        analogWrite(motorIn4, rank3);
       }
-  default:
-    break;
+    default:
+      break;
   }
 }
 
@@ -158,29 +158,29 @@ int Bin_1(int bin_1_num)
 
   switch (bin_1_num)
   {
-  case 1:
-    {
-      //Serial.print("Bin_1_distance:");
-      //Serial.println(Ultrasonic_1_distance);
-      return Ultrasonic_1_distance;
-    }
-    break;
-  case 2:
-    {
-      //Serial.print("Bin_1_OverflowState:");
-      //Serial.println(Overflow_1_state);
-      return Overflow_1_state;
-    }
-    break;
-  case 3:
-    {
-      //Serial.print("Bin_1_OverflowCount:");
-      //Serial.println(Overflow_1_number);
-      return Overflow_1_number;
-    }
-    break;
-  default:
-    break;
+    case 1:
+      {
+        //Serial.print("Bin_1_distance:");
+        //Serial.println(Ultrasonic_1_distance);
+        return Ultrasonic_1_distance;
+      }
+      break;
+    case 2:
+      {
+        //Serial.print("Bin_1_OverflowState:");
+        //Serial.println(Overflow_1_state);
+        return Overflow_1_state;
+      }
+      break;
+    case 3:
+      {
+        //Serial.print("Bin_1_OverflowCount:");
+        //Serial.println(Overflow_1_number);
+        return Overflow_1_number;
+      }
+      break;
+    default:
+      break;
   }
 }
 
@@ -205,32 +205,32 @@ int Bin_2(int bin_2_num)
   if (Ultrasonic_2_distance <= 10) {
     Overflow_2_number = 1;
   }
-  
-  switch(bin_2_num)
+
+  switch (bin_2_num)
   {
-  case 1:
-    {
-      //Serial.print("Bin_2_distance:");
-      //Serial.println(Ultrasonic_2_distance);
-      return Ultrasonic_2_distance;
-    }
-    break;
-  case 2:
-    {
-      //Serial.print("Bin_2_OverflowState:");
-      //Serial.println(Overflow_2_state);
-      return Overflow_2_state;
-    }
-    break;
-  case 3:
-    {
-      //Serial.print("Bin_2_OverflowCount:");
-      //Serial.println(Overflow_2_number);
-      return Overflow_2_number;
-    }
-    break;
-  default:
-    break;
+    case 1:
+      {
+        //Serial.print("Bin_2_distance:");
+        //Serial.println(Ultrasonic_2_distance);
+        return Ultrasonic_2_distance;
+      }
+      break;
+    case 2:
+      {
+        //Serial.print("Bin_2_OverflowState:");
+        //Serial.println(Overflow_2_state);
+        return Overflow_2_state;
+      }
+      break;
+    case 3:
+      {
+        //Serial.print("Bin_2_OverflowCount:");
+        //Serial.println(Overflow_2_number);
+        return Overflow_2_number;
+      }
+      break;
+    default:
+      break;
   }
 }
 
@@ -255,32 +255,32 @@ int Bin_3(int bin_3_num)
   if (Ultrasonic_3_distance <= 10) {
     Overflow_3_number = 1;
   }
-  
-  switch(bin_3_num)
+
+  switch (bin_3_num)
   {
-  case 1:
-    {
-      //Serial.print("Bin_3_distance:");
-      //Serial.println(Ultrasonic_3_distance);
-      return Ultrasonic_3_distance;
-    }
-    break;
-  case 2:
-    {
-      //Serial.print("Bin_3_OverflowState:");
-      //Serial.println(Overflow_3_state);
-      return Overflow_3_state;
-    }
-    break;
-  case 3:
-    {
-      //Serial.print("Bin_3_OverflowCount:");
-      //Serial.println(Overflow_3_number);
-      return Overflow_3_number;
-    }
-    break;
-  default:
-    break;
+    case 1:
+      {
+        //Serial.print("Bin_3_distance:");
+        //Serial.println(Ultrasonic_3_distance);
+        return Ultrasonic_3_distance;
+      }
+      break;
+    case 2:
+      {
+        //Serial.print("Bin_3_OverflowState:");
+        //Serial.println(Overflow_3_state);
+        return Overflow_3_state;
+      }
+      break;
+    case 3:
+      {
+        //Serial.print("Bin_3_OverflowCount:");
+        //Serial.println(Overflow_3_number);
+        return Overflow_3_number;
+      }
+      break;
+    default:
+      break;
   }
 }
 
@@ -305,32 +305,32 @@ int Bin_4(int bin_4_num)
   if (Ultrasonic_4_distance <= 10) {
     Overflow_4_number = 1;
   }
-  
-  switch(bin_4_num)
+
+  switch (bin_4_num)
   {
-  case 1:
-    {
-      //Serial.print("Bin_4_distance:");
-      //Serial.println(Ultrasonic_4_distance);
-      return Ultrasonic_4_distance;
-    }
-    break;
-  case 2:
-    {
-      //Serial.print("Bin_4_OverflowState:");
-      //Serial.println(Overflow_4_state);
-      return Overflow_4_state;
-    }
-    break;
-  case 3:
-    {
-      //Serial.print("Bin_4_OverflowCount:");
-      //Serial.println(Overflow_4_number);
-      return Overflow_4_number;
-    }
-    break;
-  default:
-    break;
+    case 1:
+      {
+        //Serial.print("Bin_4_distance:");
+        //Serial.println(Ultrasonic_4_distance);
+        return Ultrasonic_4_distance;
+      }
+      break;
+    case 2:
+      {
+        //Serial.print("Bin_4_OverflowState:");
+        //Serial.println(Overflow_4_state);
+        return Overflow_4_state;
+      }
+      break;
+    case 3:
+      {
+        //Serial.print("Bin_4_OverflowCount:");
+        //Serial.println(Overflow_4_number);
+        return Overflow_4_number;
+      }
+      break;
+    default:
+      break;
   }
 }
 
@@ -355,32 +355,32 @@ int Bin_5(int bin_5_num)
   if (Ultrasonic_5_distance <= 10) {
     Overflow_5_number = 1;
   }
-  
-  switch(bin_5_num)
+
+  switch (bin_5_num)
   {
-  case 1:
-    {
-      //Serial.print("Bin_5_distance:");
-      //Serial.println(Ultrasonic_5_distance);
-      return Ultrasonic_5_distance;
-    }
-    break;
-  case 2:
-    {
-      //Serial.print("Bin_5_OverflowState:");
-      //Serial.println(Overflow_5_state);
-      return Overflow_5_state;
-    }
-    break;
-  case 3:
-    {
-      //Serial.print("Bin_5_OverflowCount:");
-      //Serial.println(Overflow_5_number);
-      return Overflow_5_number;
-    }
-    break;
-  default:
-    break;
+    case 1:
+      {
+        //Serial.print("Bin_5_distance:");
+        //Serial.println(Ultrasonic_5_distance);
+        return Ultrasonic_5_distance;
+      }
+      break;
+    case 2:
+      {
+        //Serial.print("Bin_5_OverflowState:");
+        //Serial.println(Overflow_5_state);
+        return Overflow_5_state;
+      }
+      break;
+    case 3:
+      {
+        //Serial.print("Bin_5_OverflowCount:");
+        //Serial.println(Overflow_5_number);
+        return Overflow_5_number;
+      }
+      break;
+    default:
+      break;
   }
 }
 
@@ -389,116 +389,179 @@ void voice(int num_voice)
 {
   switch (num_voice)
   {
-  case 1:
-    syn.play(text1, sizeof(text1), 1);
-    break;
-  case 2:
-    syn.play(text1, sizeof(text2), 2);
-    break;
-  case 3:
-    syn.play(text1, sizeof(text3), 3);
-    break;
-  case 4:
-    syn.play(text1, sizeof(text4), 4);
-    break;
-  case 5:
-    syn.play(text1, sizeof(text5), 5);
-    break;
-  case 6:
-    syn.play(text6, sizeof(text6), 6);
-  default:
-    break;
+    case 1:
+      syn.play(text1, sizeof(text1), 1);
+      break;
+    case 2:
+      syn.play(text1, sizeof(text2), 2);
+      break;
+    case 3:
+      syn.play(text1, sizeof(text3), 3);
+      break;
+    case 4:
+      syn.play(text1, sizeof(text4), 4);
+      break;
+    case 5:
+      syn.play(text1, sizeof(text5), 5);
+      break;
+    case 6:
+      syn.play(text6, sizeof(text6), 6);
+    default:
+      break;
   }
 }
 
 //定义等待投放的时间
 void waiting(int timesNum)
 {
-    delay(timesNum * 1000);
+  delay(timesNum * 1000);
 }
 //系统操作：可回收垃圾类型
 void Garbage_disposal_1()
 {
-    stepper2.moveTo(0);
-    stepper3.moveTo(512); 
-    stepper1.runToNewPosition(1024);
-    voice(1);
-    waiting(5);
-    stepper1.runToNewPosition(0);
-    stepper2.moveTo(0);
-    stepper3.moveTo(0); 
+  stepper2.runToNewPosition(512);
+  stepper3.runToNewPosition(512);
+  stepper1.runToNewPosition(1024);
+  Serial.println("Please throw in the garbage!");
+  voice(1);
+  waiting(5);
+  stepper1.runToNewPosition(0);
+  stepper2.moveTo(0);
+  stepper3.moveTo(0);
+  Serial.println("The garbage outlet is closed!");
 
-    stepper1.run();   // 1号电机运行
-    stepper2.run();   // 2号电机运行
-    stepper3.run();   // 3号电机运行
 }
 
 //系统操作：厨余或湿垃圾类型
 void Garbage_disposal_2()
 {
-    stepper2.moveTo(0);
-    stepper3.moveTo(1024); 
-    stepper1.runToNewPosition(1024);
-    voice(3);
-    waiting(5);
-    stepper1.runToNewPosition(0);
-    stepper2.moveTo(0);
-    stepper3.moveTo(0); 
-
-    stepper1.run();   // 1号电机运行
-    stepper2.run();   // 2号电机运行
-    stepper3.run();   // 3号电机运行
+  stepper2.runToNewPosition(0);
+  stepper3.runToNewPosition(1024);
+  stepper1.runToNewPosition(1024);
+  Serial.println("Please throw in the garbage!");
+  voice(3);
+  waiting(5);
+  stepper1.runToNewPosition(0);
+  stepper2.moveTo(0);
+  stepper3.moveTo(0);
+  Serial.println("The garbage outlet is closed!");
 }
 
 //系统操作：有毒垃圾类型
 void Garbage_disposal_3()
 {
-    stepper2.moveTo(0);
-    stepper3.moveTo(1536); 
-    stepper1.runToNewPosition(1024);
-    voice(2);
-    waiting(5);
-    stepper1.runToNewPosition(0);
-    stepper2.moveTo(0);
-    stepper3.moveTo(0); 
-
-    stepper1.run();   // 1号电机运行
-    stepper2.run();   // 2号电机运行
-    stepper3.run();   // 3号电机运行
+  stepper2.runToNewPosition(0);
+  stepper3.runToNewPosition(1536);
+  stepper1.runToNewPosition(1024);
+  Serial.println("Please throw in the garbage!");
+  voice(2);
+  waiting(5);
+  stepper1.runToNewPosition(0);
+  stepper2.moveTo(0);
+  stepper3.moveTo(0);
+  Serial.println("The garbage outlet is closed!");
 }
 
 //系统操作：干垃圾类型
 void Garbage_disposal_4()
 {
-    stepper2.moveTo(0);
-    stepper3.moveTo(2048); 
-    stepper1.runToNewPosition(1024);
-    voice(4);
-    waiting(5);
-    stepper1.runToNewPosition(0);
-    stepper2.moveTo(0);
-    stepper3.moveTo(0); 
-
-    stepper1.run();   // 1号电机运行
-    stepper2.run();   // 2号电机运行
-    stepper3.run();   // 3号电机运行
+  stepper2.runToNewPosition(0);
+  stepper3.runToNewPosition(2048);
+  stepper1.runToNewPosition(1024);
+  Serial.println("Please throw in the garbage!");
+  voice(4);
+  waiting(5);
+  stepper1.runToNewPosition(0);
+  stepper2.moveTo(0);
+  stepper3.moveTo(0);
+  Serial.println("The garbage outlet is closed!");
 }
 
 //系统操作：其它类型
 void Garbage_disposal_5()
 {
-    stepper2.moveTo(1024);
-    stepper3.moveTo(0);
-    stepper1.runToNewPosition(1024);
-    voice(5);
-    waiting(5);
-    stepper1.runToNewPosition(0);
-    stepper2.moveTo(0);
-    stepper3.moveTo(0);
+  stepper2.runToNewPosition(1024);
+  stepper3.runToNewPosition(0);
+  stepper1.runToNewPosition(1024);
+  Serial.println("Please throw in the garbage!");
+  voice(5);
+  waiting(5);
+  stepper1.runToNewPosition(0);
+  stepper2.moveTo(0);
+  stepper3.moveTo(0);
+  Serial.println("The garbage outlet is closed!");
+}
 
-    stepper1.run();   // 1号电机运行
-    stepper2.run();   // 2号电机运行
-    stepper3.run();   // 3号电机运行 
+void runRaspberryCmd()
+{
+  //垃圾类型判断
+  switch (Bins_state)
+  {
+    case 'k':
+      {
+        if (Bin_1(2) == 0) {
+          Serial.println("Recyclable waste");
+          Garbage_disposal_1();
+
+        }
+        else
+        {
+          voice(6); //播放语音：该垃圾所属装载区已满
+        }
+      }
+      break;
+    case 'c':
+      {
+        if (Bin_2(2) == 0) {
+          Serial.println("Kitchen Waste");
+          Garbage_disposal_2();
+
+        }
+        else
+        {
+          voice(6); //播放语音：该垃圾所属装载区已满
+        }
+      }
+      break;
+    case 'y':
+      {
+        if (Bin_3(2) == 0) {
+          Serial.println("Toxic waste");
+          Garbage_disposal_3();
+        }
+        else
+        {
+          voice(6); //播放语音：该垃圾所属装载区已满
+        }
+      }
+      break;
+    case 'g':
+      {
+        if (Bin_4(2) == 0) {
+          Serial.println("Dry garbage");
+          Garbage_disposal_4();
+        }
+        else
+        {
+          voice(6); //播放语音：该垃圾所属装载区已满
+        }
+      }
+      break;
+    case 'q':
+      {
+        if (Bin_5(2) == 0) {
+          Serial.println("Other rubbish");
+          Garbage_disposal_5();
+        }
+        else
+        {
+          voice(6); //播放语音：该垃圾所属装载区已满
+        }
+      }
+      break;
+    default:
+      break;
+  }
 }
 
 
@@ -525,100 +588,36 @@ void setup()
   pinMode(echoPin_5, INPUT);
 
   //初始化风扇引脚
-  pinMode(motorIn3,OUTPUT);
-  pinMode(motorIn4,OUTPUT);
+  pinMode(motorIn3, OUTPUT);
+  pinMode(motorIn4, OUTPUT);
 
   //初始化DS18B20
   sensors.begin();
 
-  stepper1.setMaxSpeed(500.0);    // 1号电机最大速度500 
+  stepper1.setMaxSpeed(500.0);    // 1号电机最大速度500
   stepper1.setAcceleration(50.0);  // 1号电机加速度50.0
- 
-  stepper2.setMaxSpeed(500.0);    // 2号电机最大速度500 
+
+  stepper2.setMaxSpeed(500.0);    // 2号电机最大速度500
   stepper2.setAcceleration(50.0);  // 2号电机加速度50.0
 
-  stepper3.setMaxSpeed(500.0);    // 2号电机最大速度500 
+  stepper3.setMaxSpeed(500.0);    // 2号电机最大速度500
   stepper3.setAcceleration(50.0);  // 2号电机加速度50.0
-  
+
   //设置串口波特率
   Serial.begin(9600);
 }
 
 void loop()
 {
-      //判断串口缓存区有没有数据
-  if(Serial.available())
+  //判断串口缓存区有没有数据
+  if (Serial.available())
   {
-    //有数据就用read来读取并赋值
-    Bins_state = Serial.read();
-
-    //垃圾类型判断
-    switch (Bins_state)
-    {
-    case 'k':
-      {
-        if(Bin_1(2) == 0){
-            Garbage_disposal_1();
-        }
-        else
-        {
-          voice(6); //播放语音：该垃圾所属装载区已满
-        } 
-      }
-      break;
-    case 'c':
-      {
-        if(Bin_2(2) == 0){
-            Garbage_disposal_2();
-        }
-        else
-        {
-          voice(6); //播放语音：该垃圾所属装载区已满
-        } 
-      }
-      break;
-    case 'y':
-      {
-        if(Bin_3(2) == 0){
-            Garbage_disposal_3();
-        }
-        else
-        {
-          voice(6); //播放语音：该垃圾所属装载区已满
-        } 
-      }
-      break;
-    case 'g':
-      {
-        if(Bin_4(2) == 0){
-            Garbage_disposal_4();
-        }
-        else
-        {
-          voice(6); //播放语音：该垃圾所属装载区已满
-        } 
-      }
-      break;
-    case 'q':
-      {
-        if(Bin_5(2) == 0){
-            Garbage_disposal_5();
-        }
-        else
-        {
-          voice(6); //播放语音：该垃圾所属装载区已满
-        } 
-      }
-      break;
-    default:
-      break;
-    }
-    
-    //给树莓派返回接收成功的消息
-    Serial.println("Received successfully !");
-  
+    runRaspberryCmd();s
   }
 
-
-  } 
+  stepper1.run();   // 1号电机运行
+  stepper2.run();   // 2号电机运行
+  stepper3.run();   // 3号电机运行
 }
+
+

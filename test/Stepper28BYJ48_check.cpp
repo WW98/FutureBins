@@ -38,29 +38,38 @@ void setup() {
 
   stepper3.setMaxSpeed(500.0);    // 3号电机最大速度500 
   stepper3.setAcceleration(50.0);  // 3号电机加速度50.0
+
+  Serial.begin(9600);
 }
  
 void loop() {
   if (Serial.available() > 0)
   {
     Bins_state = Serial.read();
-    if(Bins_state == 'k'){
-          if ( stepper1.currentPosition() == 0 && stepper2.currentPosition() == 0 && stepper3.currentPosition() == 0 ){
-    // 电机转动半周
-    stepper1.moveTo(2048);              
+    switch(Bins_state)
+    {
+      case 'k':
+      {
+          stepper1.moveTo(2048);              
     stepper2.moveTo(2048);
-    stepper3.moveTo(2048);  
-    
-  } else if ( stepper1.currentPosition() == 2048 && stepper2.currentPosition() == 2048 && stepper3.currentPosition() == 2048){
-    // 电机转动半周
-    stepper1.moveTo(0);            
-    stepper2.moveTo(0); 
-    stepper3.moveTo(0);  
-  }  
+    stepper3.moveTo(2048);
+    Serial.println("Run1"); 
+       }
+       break;
+         case 'c':
+      {
+            stepper1.moveTo(0);              
+    stepper2.moveTo(0);
+    stepper3.moveTo(0);
+    Serial.println("Run2"); 
+       }
+       break;
+           default:
+      break;
+    } 
     }
-   
-  }
-  stepper1.run();   // 1号电机运行
+  
+   stepper1.run();   // 1号电机运行
   stepper2.run();   // 2号电机运行
-  stepper3.run();   // 3号电机运行
+   stepper3.run();   // 1号电机运行
 }
